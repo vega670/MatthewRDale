@@ -1,29 +1,29 @@
 MatthewRDale::Application.routes.draw do
-  resources :projects
+#  resources :projects
 
-  resources :pages
+#  resources :pages
   
-  resources :projects do
-    resources :galleries do
-      resources :images
-    end
+#  resources :projects do
+#    resources :galleries do
+#      resources :images
+#    end
   
-    namespace(:aadgadmin, :namespace => '') do
-      resources :galleries do
-        resources :dimensions
-        resources :images
-      end
-      resources :dimensions do
-        resources :galleries
-      end
-    end
-  end
+#    namespace(:aadgadmin, :namespace => '') do
+#      resources :galleries do
+#        resources :dimensions
+#        resources :images
+#      end
+#      resources :dimensions do
+#        resources :galleries
+#      end
+#    end
+#  end
   
-  namespace :aadgadmin do
-    resources :dimensions do
-      resources :galleries
-    end
-  end
+#  namespace :aadgadmin do
+#    resources :dimensions do
+#      resources :galleries
+#    end
+#  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -76,7 +76,7 @@ MatthewRDale::Application.routes.draw do
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
   
-  root :to => "pages#index"
+#  root :to => "pages#index"
 
   # See how all your routes lay out with "rake routes"
 
