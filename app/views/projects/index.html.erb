@@ -1,0 +1,14 @@
+<h1>projects</h1>
+
+<% @projects.each do |project| %>
+	<%= project.name %>
+	Source: <%= link_to project.source_link, project.source_link %>
+	Live: <%= link_to project.live_link, project.live_link %>
+	<%= project.client %>
+	<%= project.completed %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project', new_project_path %>
