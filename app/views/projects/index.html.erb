@@ -6,8 +6,17 @@
 	Live: <%= link_to project.live_link, project.live_link %>
 	<%= project.client %>
 	<%= project.completed %>
+	
+	<% project.galleries.each do |gallery| %>
+		<%= link_to gallery.name, project_gallery_path(project, gallery) %><br />
+		<%= gallery.description %><br />
+		<%= link_to 'Edit', edit_project_aadgadmin_gallery_path(project, gallery) %><br />
+		<%= link_to 'Delete', project_aadgadmin_gallery_path(project, gallery), :method => :delete, :confirm => 'Are you sure?' %><br />
+	<% end %>
+	
+	<%= link_to 'New Gallery', new_project_aadgadmin_gallery_path(project) %>
+	<br />
 <% end %>
-</table>
 
 <br />
 
