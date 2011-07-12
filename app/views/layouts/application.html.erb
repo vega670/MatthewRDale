@@ -9,6 +9,8 @@
 <body>
 <%= link_to "Pages", pages_path %>
 <%= link_to "Projects", projects_path %>
+<%= link_to "Bio", :controller => "pages", :action => "show", :id => "bio" %>
+<%= link_to "Resume", :controller => "pages", :action => "show", :id => "resume" %>
 
 <%= yield %>
 
