@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MatthewRDale</title>
+  <title>MatthewRDale ::
+<%= yield(:title).empty? ? "base" : yield(:title) %>
+  	</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
@@ -9,8 +11,18 @@
 <body>
 <%= link_to "Pages", pages_path %>
 <%= link_to "Projects", projects_path %>
-<%= link_to "Bio", :controller => "pages", :action => "show", :id => "bio" %>
-<%= link_to "Resume", :controller => "pages", :action => "show", :id => "resume" %>
+<%= link_to "Bio", pages_path, :id => "bio" %>
+<%= link_to "Resume", pages_path, :id => "resume" %>
+<% if user_signed_in? %>
+	Signed in as <%= current_user.username %>. <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% else %>
+	<%= link_to "Sign in", new_user_session_path %>
+<% end%>
+<div id="notices">
+	<% flash.each do |name, msg| %>
+		<%= content_tag :div, msg, :id => "flash_#{name}" %>
+	<% end %>
+</div>
 
 <%= yield %>
 

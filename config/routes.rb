@@ -1,8 +1,10 @@
 MatthewRDale::Application.routes.draw do
+  devise_for :users
+
   resources :projects
 
   resources :pages
-  
+
   resources :projects do
     resources :galleries do
       resources :images
