@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_filter :authenticate_user!, :except => :show
+  
   # GET /pages
   # GET /pages.xml
   def index
@@ -13,7 +15,11 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.xml
   def show
-    @page = Page.find_by_permalink(params[:id])
+    if params[:id] =~ /\b\d+\b/
+      @page = Page.find(params[:id])
+    else
+      @page = Page.find_by_permalink(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -44,8 +50,8 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.save
-        format.html { redirect_to(:controller => :pages, :id => @page.permalink, :notice => 'Page was successfully created.') }
-        format.xml  { render :xml => {:controller => :pages, :id => @page.permalink}, :status => :created, :location => @page }
+        format.html { redirect_to(@page, :notice => 'Page was successfully created.') }
+        format.xml  { render :xml => @page, :status => :created, :location => @page }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @page.errors, :status => :unprocessable_entity }
@@ -60,7 +66,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.update_attributes(params[:page])
-        format.html { redirect_to(:controller => :pages, :id => @page.permalink, :notice => 'Page was successfully updated.') }
+        format.html { redirect_to(@page, :notice => 'Page was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
