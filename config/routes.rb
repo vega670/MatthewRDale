@@ -52,6 +52,8 @@ MatthewRDale::Application.routes.draw do
       resources :galleries
     end
   end
+  
+  match '/:id' => 'pages#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -104,7 +106,7 @@ MatthewRDale::Application.routes.draw do
   # just remember to delete public/index.html.
   # root :to => "welcome#index"
   
-  root :to => "pages#index"
+  root :to => "pages#show", :id => 'home'
 
   # See how all your routes lay out with "rake routes"
 

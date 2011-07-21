@@ -7,27 +7,53 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-<div id="wrapper">
-<div id="menu">
-	<%= link_to "Bio", page_path(:id => "bio") %>
-	<%= link_to "Resume", page_path(:id => "resume") %>
+<div class="container">
+<div id="main_menu">
+<div class="eight columns">
+<div id="menu_links">
+<%= link_to_unless_current("Bio", "/bio") do '<span class="selected_link">Bio</span>'.html_safe end %>
+<%= link_to_unless_current("Projects", "/projects") do '<span class="selected_link">Projects</span>'.html_safe end %>
+<%= link_to_unless_current("Resume", "/resume") do '<span class="selected_link">Resume</span>'.html_safe end %>
+<div id="contact_link"><%= link_to_unless_current("Contact", "/contact") do '<span class="selected_link">Contact</span>'.html_safe end %></div>
 </div>
-<div id="user">
-	<% if user_signed_in? %>
-		Signed in as <%= current_user.username %>. <%= link_to "Sign out", destroy_user_session_path, :method => :delete %><br />
-		<%= link_to "Pages", pages_path %>
-	<% else %>
-		<%= link_to "Sign in", new_user_session_path %>
-	<% end%>
 </div>
-<div id="notices">
-	<% flash.each do |name, msg| %>
-		<%= content_tag :div, msg, :id => "flash_#{name}" %>
-	<% end %>
 </div>
+<div class="eight columns">
+<div id="site_title"><%= link_to "Matthew R.", root_path %></div>
+</div>
+<div class="clear"></div>
+<div class="three columns">
+<div id="site_title"><%= link_to "Dale", "/" %></div>
+<div id="contact_info">
+<%= mail_to "matthew.robert.dale@gmail.com", "matthew.robert.dale<br />@gmail.com".html_safe, :encode => "javascript" %>
+<br /><br />
+(706) 247-2016
+<br /><br />
+2703 Macby Ave<br />
+Marietta, GA 30066
+</div>
+</div>
+<div class="twelve columns content offset-by-one">
 <div id="content">
-<%= yield %>
+<div id="notices">
+<% flash.each do |name, msg| %>
+<%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
 </div>
+	
+<%= yield %>
+
+</div>
+</div>
+</div>
+
+<div id="user">
+<% if user_signed_in? %>
+	Signed in as <%= current_user.username %>. <%= link_to "Sign out", destroy_user_session_path, :method => :delete %><br />
+	<%= link_to "Pages", pages_path %>
+<% else %>
+	<%= link_to "Sign in", new_user_session_path %>
+<% end%>
 </div>
 </body>
 </html>
