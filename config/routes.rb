@@ -4,6 +4,7 @@ MatthewRDale::Application.routes.draw do
 #  resources :projects
 
   resources :pages
+  
 =begin
   #aadg paths for projects resource
   resources :projects do

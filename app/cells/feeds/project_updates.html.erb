@@ -1,0 +1,4 @@
+<% @rss.items.each do |item| %>
+	<%= strip_tags(CGI::unescapeHTML(item.title.to_s)) %><br />
+	<%= strip_tags(CGI::unescapeHTML(item.content.to_s)) %><br /><br />
+<% end %>

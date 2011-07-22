@@ -1,6 +1,0 @@
-<% title @page.name %>
-
-<%= RedCloth.new(@page.content).to_html.html_safe %>
-
-<%= link_to 'Edit', edit_page_path(@page) %> |
-<%= link_to 'Back', pages_path %>

@@ -1,8 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    RedCloth (4.2.7)
-    RedCloth (4.2.7-x86-mingw32)
     abstract (1.0.0)
     actionmailer (3.0.7)
       actionpack (= 3.0.7)
@@ -33,6 +31,9 @@ GEM
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
+    cells (3.6.3)
+      actionpack (~> 3.0)
+      railties (~> 3.0)
     devise (1.4.2)
       bcrypt-ruby (~> 2.1.2)
       orm_adapter (~> 0.0.3)
@@ -81,7 +82,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  RedCloth
+  cells
   devise
   rails (= 3.0.7)
   sqlite3

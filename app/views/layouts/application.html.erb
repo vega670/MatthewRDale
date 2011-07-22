@@ -8,8 +8,15 @@
 </head>
 <body>
 <div class="container">
+<div id="user">
+<% if user_signed_in? %>
+	Signed in as <%= current_user.username %>.
+	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+	<%= link_to "Pages", pages_path %>
+<% end%>
+</div>
 <div id="main_menu">
-<div class="eight columns">
+<div class="eight columns omega">
 <div id="menu_links">
 <%= link_to_unless_current("Bio", "/bio") do '<span class="selected_link">Bio</span>'.html_safe end %>
 <%= link_to_unless_current("Projects", "/projects") do '<span class="selected_link">Projects</span>'.html_safe end %>
@@ -18,11 +25,11 @@
 </div>
 </div>
 </div>
-<div class="eight columns">
+<div class="eight columns alpha">
 <div id="site_title"><%= link_to "Matthew R.", root_path %></div>
 </div>
 <div class="clear"></div>
-<div class="three columns">
+<div class="three columns alpha">
 <div id="site_title"><%= link_to "Dale", "/" %></div>
 <div id="contact_info">
 <%= mail_to "matthew.robert.dale@gmail.com", "matthew.robert.dale<br />@gmail.com".html_safe, :encode => "javascript" %>
@@ -33,7 +40,7 @@
 Marietta, GA 30066
 </div>
 </div>
-<div class="twelve columns content offset-by-one">
+<div class="twelve columns content omega offset-by-one">
 <div id="content">
 <div id="notices">
 <% flash.each do |name, msg| %>
@@ -45,15 +52,6 @@ Marietta, GA 30066
 
 </div>
 </div>
-</div>
-
-<div id="user">
-<% if user_signed_in? %>
-	Signed in as <%= current_user.username %>. <%= link_to "Sign out", destroy_user_session_path, :method => :delete %><br />
-	<%= link_to "Pages", pages_path %>
-<% else %>
-	<%= link_to "Sign in", new_user_session_path %>
-<% end%>
 </div>
 </body>
 </html>

@@ -18,16 +18,15 @@
 ================================================== */
 
 body {
-	background: #FFFFFF;
-	background-position: center;
-	background-repeat: no-repeat;
+	background: url(/images/background.png) #f2f2f2;
+	background-repeat: repeat-x;
 	font-family: "Lucida Sans";
-	color: #1A1A1A;
+	color: #666666;
 }
 
 a, a:visited, a:hover {
 	text-decoration: none;
-	color: #1A1A1A;
+	color: #666666;
 }
 #main_menu a, a:visited {
 	/* color: #42210B; */
@@ -176,6 +175,11 @@ div.field, div.actions {
 		
 		#contact_info {
 			display: none;
+		}
+		
+		#contact_info_mobile {
+			margin-top: 20px;
+			font-size: 12pt;
 		}
 		
 		#contact_link {
