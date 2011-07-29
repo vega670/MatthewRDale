@@ -1,4 +1,5 @@
-<% @rss.items.each do |item| %>
+<% @rss.items.each_with_index do |item, count| %>
 	<%= strip_tags(CGI::unescapeHTML(item.title.to_s)) %><br />
 	<%= strip_tags(CGI::unescapeHTML(item.content.to_s)) %><br /><br />
+	<% if count > 5 then break end %>
 <% end %>

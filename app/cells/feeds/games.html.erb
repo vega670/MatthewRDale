@@ -1,7 +1,3 @@
-<h1>
-  Feeds#games
-</h1>
-
-<p>
-  Find me in app/cells/feeds/games.html.erb
-</p>
+<% @xml.elements.each('profile/mostPlayedGames/mostPlayedGame') do |game| %>
+	<%= game.elements.each('gameName') do |name| name.text end %><br />
+<% end %>

@@ -18,77 +18,116 @@
 ================================================== */
 
 body {
-	background: url(/images/background.png) #f2f2f2;
-	background-repeat: repeat-x;
+	background: url(/images/background.jpg) #ffffff;
+	background-repeat: no-repeat;
+	background-position: center;
 	font-family: "Lucida Sans";
-	color: #666666;
+	font-size: 10pt;
+	color: #202020;
 }
 
 a, a:visited, a:hover {
 	text-decoration: none;
-	color: #666666;
-}
-#main_menu a, a:visited {
-	/* color: #42210B; */
 }
 
-#main_menu a:hover {
-	/* color: #C7B299; */
+h1, h2, h3, h4 {
+	font-family: "Lucida Sans";
+	color: #202020;
 }
 
-#contact_info a, a:visited {
-	/* color: #1A1A1A */
+h2 {
+	color: #9f9f9f;
+	margin: 0px;
+	padding: 0px;
+	font-size: 14pt;
 }
 
-#contact_info a:hover {
-	/* color: #4D4D4D; */
+ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-image: url(/images/bullet.gif);
 }
 
-#site_title {
-	/* color: #42210B; */
+#background {
+	background: url(/images/top_bg.gif);
+	background-repeat: repeat-x;
+}
+
+#top {
+	width: 100%;
+	height: 88px;
+	color: #ffffff;
+	overflow: hidden;
+}
+
+#top h1 {
+	color: #FFFFFF;
+	letter-spacing: 3px;
+	font-size: 18pt;
+	font-weight: normal;
+	position: relative;
+	margin: 0px;
+	top: 33px;
+	display: block;
+	float: left;
+	background: url(/images/bg_t.gif) no-repeat;
+	padding-left: 10px;
+}
+
+#top h1 a {
+	color: #ffffff;
+	text-decoration: none;
 }
 
 #main_menu {
-	/* color: #42210B; */
-}
-
-#flash_notice {
-  color: green;
-}
-
-#contact_link {
-	display: none;
-}
-
-/* Desktop Display Formatted */
-
-body {
-	padding-top: 15px;
-}
-
-#site_title {
-	line-height: 100%;
-	font-size: 52pt;
-}
-
-#main_menu {
-	line-height: 100%;
-	font-size: 32pt;
+	display: block;
 	float: right;
-	margin-top: 23px;
 }
 
-.selected_link {
-	text-decoration: underline;
+#main_menu ul {
+	margin: 0px;
+	list-style: none;
 }
 
-#contact_info {
-	margin-top: 20px;
-	font-size: 12pt;
+#main_menu li {
+	display: block;
+	float: left;
+	white-space: nowrap;
+}
+
+#main_menu li a {
+	display: block;
+	padding: 55px 20px 12px 20px;
+	text-decoration: none;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+* html #main_menu a {width: 1%;}
+
+#main_menu li a:hover {
+	background: url(/images/bg_menu.gif);
+}
+
+#main_menu li a.current {
+	letter-spacing: 1px;
+	color: #000000;
+	background: url(/images/bg_menu.gif);
+}
+
+#main_menu li a.current:hover {
+	color: #FFFFFF;
 }
 
 #content {
-	margin-top: 40px;
+	margin-top: 30px;
+	background: #ffffff;
+	padding: 10px;
+}
+
+#content h2 {
+	margin: 0px;
+	padding: 10px 0px 10px 0px;
 }
 
 /* From rails scaffold.css */
@@ -130,66 +169,19 @@ div.field, div.actions {
 /* #Page Styles
 ================================================== */
 
+#welcome {
+	margin: 20px 0px 0px 20px;
+	font-size: 12pt;
+}
+
 /* #Media Queries
 ================================================== */
 	
 	/* iPad Portrait/Browser */
-	@media only screen and (min-width: 768px) and (max-width: 991px) {
-		body {
-			padding-top: 15px;
-		}
-		
-		#site_title {
-			font-size: 36pt;
-		}
-		
-		#main_menu {
-			font-size: 24pt;
-			margin-top: 11px;
-		}
-		
-		#contact_info {
-			margin-top: 20px;
-			font-size: 10pt;
-		}
-		
-		#content {
-			margin-top: 30px;
-		}
-	}
+	@media only screen and (min-width: 768px) and (max-width: 991px) {}
 	
 	/* Mobile/Browser */
-	@media only screen and (max-width: 767px) {
-		body {
-			padding-top: 15px;
-		}
-		
-		#site_title {
-			font-size: 32pt;
-		}
-		
-		#main_menu {
-			font-size: 20pt;
-			margin-bottom: 20px;
-		}
-		
-		#contact_info {
-			display: none;
-		}
-		
-		#contact_info_mobile {
-			margin-top: 20px;
-			font-size: 12pt;
-		}
-		
-		#contact_link {
-			display: block;
-		}
-		
-		#content {
-			margin-top: 30px;
-		}
-	}
+	@media only screen and (max-width: 767px) {}
 	
 	/* Mobile Landscape/Browser */
 	@media only screen and (min-width: 480px) and (max-width: 767px) {}
@@ -198,79 +190,13 @@ div.field, div.actions {
 	@media only screen and (max-width: 959px) {}
 	
 	/* iPad Portrait Only */
-	@media only screen and (min-width: 768px) and (max-width: 991px) and (max-device-width: 1000px) {
-		body {
-			padding-top: 15px;
-		}
-		
-		#site_title {
-			font-size: 36pt;
-		}
-		
-		#main_menu {
-			font-size: 24pt;
-			margin-top: 11px;
-		}
-		
-		#contact_info {
-			margin-top: 20px;
-			font-size: 10pt;
-		}
-		
-		#content {
-			margin-top: 30px;
-		}
-	}
+	@media only screen and (min-width: 768px) and (max-width: 991px) and (max-device-width: 1000px) {}
 	
 	/* Mobile Only */
-	@media only screen and (max-width: 767px) and (max-device-width: 1000px) {
-		body {
-			padding-top: 15px;
-		}
-		
-		#site_title {
-			font-size: 36pt;
-		}
-		
-		#main_menu {
-			font-size: 24pt;
-			margin-top: 11px;
-		}
-		
-		#contact_info {
-			margin-top: 20px;
-			font-size: 10pt;
-		}
-		
-		#content {
-			margin-top: 30px;
-		}
-	}
+	@media only screen and (max-width: 767px) and (max-device-width: 1000px) {}
 	
 	/* Mobile Landscape Only */
-	@media only screen and (min-width: 480px) and (max-width: 767px) and (max-device-width: 1000px) {
-		body {
-			padding-top: 15px;
-		}
-		
-		#site_title {
-			font-size: 36pt;
-		}
-		
-		#main_menu {
-			font-size: 24pt;
-			margin-top: 11px;
-		}
-		
-		#contact_info {
-			margin-top: 20px;
-			font-size: 10pt;
-		}
-		
-		#content {
-			margin-top: 30px;
-		}
-	}
+	@media only screen and (min-width: 480px) and (max-width: 767px) and (max-device-width: 1000px) {}
 	
 
 /* #Font-Face

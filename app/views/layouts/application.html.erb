@@ -7,6 +7,7 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+<div id="background">
 <div class="container">
 <div id="user">
 <% if user_signed_in? %>
@@ -15,33 +16,22 @@
 	<%= link_to "Pages", pages_path %>
 <% end%>
 </div>
-<div id="main_menu">
-<div class="eight columns omega">
-<div id="menu_links">
-<%= link_to_unless_current("Bio", "/bio") do '<span class="selected_link">Bio</span>'.html_safe end %>
-<%= link_to_unless_current("Projects", "/projects") do '<span class="selected_link">Projects</span>'.html_safe end %>
-<%= link_to_unless_current("Resume", "/resume") do '<span class="selected_link">Resume</span>'.html_safe end %>
-<div id="contact_link"><%= link_to_unless_current("Contact", "/contact") do '<span class="selected_link">Contact</span>'.html_safe end %></div>
+<div id="top">
+<div class="six columns alpha">
+<div id="site_title"><h1><%= link_to "Matthew R. Dale", root_path %></h1></div>
 </div>
+<div class="ten columns omega" id="main_menu">
+<ul>
+<li><%= link_to_unless_current("home", root_path) do link_to("home", root_path, :class => 'current') end %></li>
+<li><%= link_to_unless_current("bio", "/bio") do link_to("bio", "/bio", :class => 'current') end %></li>
+<li><%= link_to_unless_current("projects", "/projects") do link_to("projects", "/projects", :class => 'current') end %></li>
+<li><%= link_to_unless_current("resume", "/resume") do link_to("resume", "/resume", :class => 'current') end %></li>
+<li><%= link_to_unless_current("contact", "/contact") do link_to("contact", "/contact", :class => 'current') end %></li>
+</ul>
 </div>
-</div>
-<div class="eight columns alpha">
-<div id="site_title"><%= link_to "Matthew R.", root_path %></div>
 </div>
 <div class="clear"></div>
-<div class="three columns alpha">
-<div id="site_title"><%= link_to "Dale", "/" %></div>
-<div id="contact_info">
-<%= mail_to "matthew.robert.dale@gmail.com", "matthew.robert.dale<br />@gmail.com".html_safe, :encode => "javascript" %>
-<br /><br />
-(706) 247-2016
-<br /><br />
-2703 Macby Ave<br />
-Marietta, GA 30066
-</div>
-</div>
-<div class="twelve columns content omega offset-by-one">
-<div id="content">
+<div class="sixteen columns content alpha omega" id="content">
 <div id="notices">
 <% flash.each do |name, msg| %>
 <%= content_tag :div, msg, :id => "flash_#{name}" %>
