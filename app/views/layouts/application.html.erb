@@ -24,7 +24,6 @@
 <ul>
 <li><%= link_to_unless_current("home", root_path) do link_to("home", root_path, :class => 'current') end %></li>
 <li><%= link_to_unless_current("bio", "/bio") do link_to("bio", "/bio", :class => 'current') end %></li>
-<li><%= link_to_unless_current("projects", "/projects") do link_to("projects", "/projects", :class => 'current') end %></li>
 <li><%= link_to_unless_current("resume", "/resume") do link_to("resume", "/resume", :class => 'current') end %></li>
 <li><%= link_to_unless_current("contact", "/contact") do link_to("contact", "/contact", :class => 'current') end %></li>
 </ul>
@@ -40,6 +39,17 @@
 	
 <%= yield %>
 
+</div>
+<div class="clear"></div>
+<div id="footer">
+	<div class="eight columns alpha" id="copyright">
+		Copyright 2011 Matthew R. Dale.
+	</div>
+	<div class="eight columns omega" id="acknowledgements">
+		Dynamic CSS template provided by <%= link_to "Skeleton", "http://www.getskeleton.com/", :target => "_blank" %>.<br />
+		Visual design based on <%= link_to "LoadFoO V2", "http://www.oswd.org/design/information/id/3551", :target => "_blank" %> by <%= link_to "pingfoo", "http://www.oswd.org/user/profile/id/20914", :target => "_blank" %>.
+	</div>
+	<div class="clear"></div>
 </div>
 </div>
 </div>
