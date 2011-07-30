@@ -18,9 +18,9 @@
 ================================================== */
 
 body {
-	background: url(/images/background.jpg) #ffffff;
+	background: url(/images/background.jpg) #FFFFFF;
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position:top;
 	font-family: "Lucida Sans Unicode", "Arial";
 	font-size: 10pt;
 	color: #202020;
@@ -122,6 +122,7 @@ blockquote{
 	text-decoration: none;
 	color: #FFFFFF;
 	font-weight: bold;
+	letter-spacing: 1px;
 }
 
 * html #main_menu a {width: 1%;}
@@ -140,14 +141,18 @@ blockquote{
 }
 
 #content {
-	margin-top: 30px;
-	background: #ffffff;
-	padding: 10px;
+	overflow: hidden;
+	margin: 10px;
 }
 
 #content h2 {
 	margin: 0px;
 	padding: 10px 0px 10px 0px;
+}
+
+#contentbg {
+	margin-top: 30px;
+	background: #ffffff;
 }
 
 #footer {
@@ -162,7 +167,6 @@ blockquote{
 }
 
 #acknowledgements {
-	float: right;
 	font-size: 8pt;
 	text-align: right;
 	line-height: 10px;
@@ -263,13 +267,13 @@ div.field, div.actions {
 	padding: 0px;
 	list-style-type: disc;
 	list-style-image: none;
-	margin-left: 20px;
-	margin-top: 10px;
+	padding-left: 20px;
+	padding-top: 10px;
 	margin-bottom: 0px;
 }
 
 #resume p {
-	margin-left: 20px;
+	padding-left: 20px;
 }
 
 #resume h2 {
@@ -306,6 +310,11 @@ div.field, div.actions {
 	
 	/* Mobile/Browser */
 	@media only screen and (max-width: 767px) {
+		.funkysmall {
+			margin-right: -10px;
+			margin-left: -10px;
+		}
+		
 		#top h1 {
 			letter-spacing: 3px;
 			font-weight: normal;
@@ -320,6 +329,36 @@ div.field, div.actions {
 		
 		#main_menu li a {
 			padding: 10px 10px 5px 10px;
+		}
+		
+		#acknowledgements {
+			text-align: left;
+		}
+		
+		#resume #address #permanent, #resume #address #current {
+			text-align: center;
+		}
+		
+		#resume .leftborder {
+			border-left: 0px solid #202020;
+			margin-bottom: 10px;
+			padding-left: 0px;
+		}
+		
+		#resume .rightalign {
+			text-align: left;
+		}
+		
+		#resume .job {
+			margin: 10px 0px 0px 0px;
+		}
+		
+		#contentbg {
+			padding: 10px;
+		}
+		
+		#content {
+			margin-left: 0px;
 		}
 	}
 	
@@ -338,6 +377,18 @@ div.field, div.actions {
 	@media only screen and (max-width: 959px) {
 		#top h1 {
 			font-size: 18pt;
+		}
+		
+		#resume {
+			font-size: 10pt;
+		}
+		
+		#resume h1 {
+			font-size: 14pt;
+		}
+		
+		#resume h2 {
+			font-size: 10pt;
 		}
 	}
 	
