@@ -1,10 +1,23 @@
 <% title 'Contact' %>
 
 <div id="contact_info">
-<%= mail_to "matthew.robert.dale@gmail.com", "matthew.robert.dale<br />@gmail.com".html_safe, :encode => "javascript" %>
-<br /><br />
-(706) 247-2016
-<br /><br />
-2703 Macby Ave<br />
-Marietta, GA 30066
+	Please feel free to contact me in any of the following ways. I will respond most promptly to email or phone contact.<br />
+<div class="four columns alpha">
+	<h2>By Email</h2>
+	<%= mail_to "matthew.robert.dale@gmail.com", "matthew.robert.dale<br />@gmail.com".html_safe, :encode => "javascript" %>
+</div>
+<div class="four columns">
+	<h2>By Phone</h2>
+	(706) 247-2016
+</div>
+<div class="four columns">
+	<h2>By Mail</h2>
+	2703 Macby Ave<br />Marietta, GA 30066
+</div>
+<div class="four columns omega" id="linkedin">
+	<a href="http://www.linkedin.com/in/matthewrdale" target="_blank">
+		<img src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x33.png" width="160" height="33" border="0" alt="View Matthew Dale's profile on LinkedIn">
+	</a>
+</div>
+<div class="clear"></div>
 </div>

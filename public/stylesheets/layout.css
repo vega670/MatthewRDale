@@ -42,13 +42,20 @@ a:hover {
 h1, h2, h3, h4 {
 	font-family: "Lucida Sans Unicode", "Arial";
 	color: #202020;
+	margin: 0px;
+	padding: 0px;
 }
 
 h2 {
 	color: #9f9f9f;
-	margin: 0px;
-	padding: 0px;
 	font-size: 14pt;
+}
+
+h3 {
+	color: #294049;
+	font-size: 9pt;
+	line-height: normal;
+	font-weight: bold;
 }
 
 ul {
@@ -210,11 +217,19 @@ div.field, div.actions {
 
 /* #Page Styles
 ================================================== */
+/* Home Page */
 
 #welcome {
 	margin: 20px 0px 0px 20px;
 	font-size: 12pt;
 }
+
+.update {
+	margin-bottom: 20px;
+}
+
+
+/* Resume Page */
 
 #resume {
 	font-size: 12pt;
@@ -239,8 +254,11 @@ div.field, div.actions {
 }
 
 #resume .link {
-	font-size: 8pt;
 	color: #202020;
+}
+
+#resume ul a.link {
+	font-size: 8pt;
 }
 
 #resume .job {
@@ -299,6 +317,17 @@ div.field, div.actions {
 
 #resume #download {
 	margin-bottom: 10px;
+}
+
+
+/* Contact Page */
+
+#contact_info {
+	font-size: 12pt;
+}
+
+#contact_info #linkedin {
+	padding-top: 40px;
 }
 
 
