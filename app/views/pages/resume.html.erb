@@ -1,16 +1,16 @@
 <% title 'Resume' %>
 
 <div id="resume">
-<div id="download">
+<div id="download" name="download">
 	<%= link_to "Click here to download in PDF format.", "/matthew_dale_resume.pdf" %>
 </div>
-<div class="sixteen columns alpha" id="contact_info">
+<div class="sixteen columns alpha" id="contact_info" name="contact_info">
 <h1>Matthew R Dale</h1>
 <%= mail_to "matthew.robert.dale@gmail.com", "matthew.robert.dale@gmail.com".html_safe, :encode => "javascript", :class => "link" %><br />
 (706) 247-2016
 </div>
 <div class="clear"></div>
-<div id="address">
+<div id="address" name="address">
 	<div class="eight columns omega" id="current">
 		<i>Current</i><br />
 		2703 Macby Ave<br />
@@ -23,6 +23,7 @@
 	</div>
 	<div class="clear"></div>
 </div>
+<div id="education" name="education">
 <div class="two columns omega rightalign">
 	<h2>Education</h2>
 </div>
@@ -38,6 +39,8 @@
 	</div>
 </div>
 <div class="clear"></div>
+</div>
+<div id="skills" name="skills">
 <div class="two columns omega rightalign">
 	<h2>Skills</h2>
 </div>
@@ -52,6 +55,8 @@
 	</div>
 </div>
 <div class="clear"></div>
+</div>
+<div id="experience" name="experience">
 <h2 class="bottomborder">Experience</h2>
 <div class="eight columns alpha">
 	<ul>
@@ -78,6 +83,8 @@
 	</ul>
 </div>
 <div class="clear"></div>
+</div>
+<div id="employment" name="employment">
 <h2 class="bottomborder">Employment</h2>
 <div class="six columns alpha job">
 	Southern Polytechnic State University<br />
@@ -97,6 +104,8 @@
 	Responsible for handling teacher and administrator computer service requests pertaining to hardware and software problems. Also, updated images for and imaged workstations.
 </div>
 <div class="clear"></div>
+</div>
+<div id="activities" name="activities">
 <h2 class="bottomborder">Activities</h2>
 <div class="eight columns alpha">
 	<ul>
@@ -109,4 +118,5 @@
 	</ul>
 </div>
 <div class="clear"></div>
+</div>
 </div>
