@@ -1,7 +1,10 @@
 <% @rss.items.each_with_index do |item, count| %>
 <div class="update">
-	<h3><%= strip_tags(CGI::unescapeHTML(item.title.to_s)) %></h3>
-	<%= strip_tags(CGI::unescapeHTML(item.content.to_s)) %>
+<%=
+	content = CGI::unescapeHTML(item.content.to_s)
+	fixed_content = content.gsub(/href="\/vega670/, 'target="_blank" href="https://github.com/vega670')
+	fixed_content.html_safe
+%>
 </div>
 	<% if count > 5 then break end %>
 <% end %>
