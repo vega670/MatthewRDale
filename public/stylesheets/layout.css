@@ -18,7 +18,7 @@
 ================================================== */
 
 body {
-	background: url(/images/background.jpg) #FFFFFF;
+	background: #FFF;
 	background-repeat: no-repeat;
 	background-position:top;
 	font-family: "Lucida Sans Unicode", "Arial";
@@ -47,7 +47,7 @@ h1, h2, h3, h4 {
 }
 
 h2 {
-	color: #9f9f9f;
+	color: #777;
 	font-size: 14pt;
 }
 
@@ -68,7 +68,7 @@ h4 {
 	line-height: normal;
 	font-style: italic;
 	font-weight: normal;
-	color: #9f9f9f;
+	color: #888;
 }
 
 ul {
@@ -162,7 +162,7 @@ blockquote{
 
 #content {
 	overflow: hidden;
-	margin: 10px;
+	/* margin: 10px; */
 }
 
 #content h2 {
@@ -172,14 +172,14 @@ blockquote{
 
 #contentbg {
 	margin-top: 30px;
-	background: #ffffff;
+	background: #FFF;
 }
 
 #footer {
 	background: #FFFFFF;
 	border-top: 2px solid #000000;
 	margin-top: 5px;
-	padding: 5px 10px;
+	padding: 5px 0px;
 }
 
 #copyright {
@@ -233,7 +233,8 @@ div.field, div.actions {
 /* Home Page */
 
 #welcome {
-	margin: 20px 0px 0px 20px;
+	/* margin: 20px 0px 0px 20px; */
+	margin-top: 20px;
 	font-size: 12pt;
 	line-height: 30px;
 }
@@ -267,7 +268,8 @@ div.field, div.actions {
 /* Bio Page */
 
 #bio {
-	margin: 20px 0px 0px 20px;
+	/* margin: 20px 0px 0px 20px; */
+	margin-top: 20px;
 	font-size: 12pt;
 	line-height: 30px;
 }
