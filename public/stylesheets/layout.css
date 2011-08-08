@@ -242,11 +242,11 @@ div.field, div.actions {
 	color: #CC0000;
 }
 
-#updates h2 {
+#updates h2, #games h2 {
 	text-align: center;
 }
 
-#updates h4 {
+#updates h4, #games h4 {
 	margin: -20px 0px 20px 0px;
 	text-align: center;
 }
@@ -272,10 +272,14 @@ div.field, div.actions {
 	line-height: 30px;
 }
 
-#bio span {
-	color: #CC0000;
+#games {
+	text-align: center;
 }
 
+#profiles {
+	text-align: center;
+	margin-top: 50px;
+}
 
 /* Resume Page */
 
