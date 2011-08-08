@@ -267,12 +267,13 @@ div.field, div.actions {
 /* Bio Page */
 
 #bio {
+	margin: 20px 0px 0px 20px;
 	font-size: 12pt;
+	line-height: 30px;
 }
 
-#bio h2 {
-	line-height: normal;
-	display: inline;
+#bio span {
+	color: #CC0000;
 }
 
 

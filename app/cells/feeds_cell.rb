@@ -2,7 +2,7 @@ class FeedsCell < Cell::Rails
   require 'rss'
   require 'uri'
   require 'net/https'
-  require 'rexml/document'
+  require 'xml'
   
   def project_updates
     uri = URI.parse("https://github.com/vega670.atom")
@@ -20,12 +20,14 @@ class FeedsCell < Cell::Rails
   def games
     url = 'http://steamcommunity.com/id/vega670/?xml=1'
     xml_data = Net::HTTP.get_response(URI.parse(url)).body
-    @xml = REXML::Document.new(xml_data)
+    parser, parser.string = XML::Parser.new, xml_data
+    doc, statuses = parser.parse, []
     
-    render
-  end
-
-  def music
+    @games = Array.new
+    doc.find('//profile/mostPlayedGames/mostPlayedGame').each do |game|
+      @games << { :logo => game.find('gameLogo').first.content, :link => game.find('gameLink').first.content }
+    end
+    
     render
   end
 
