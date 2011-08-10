@@ -20,8 +20,10 @@ class FeedsCell < Cell::Rails
   def games
     url = 'http://steamcommunity.com/id/vega670/?xml=1'
     xml_data = Net::HTTP.get_response(URI.parse(url)).body
-    parser, parser.string = XML::Parser.new, xml_data
-    doc, statuses = parser.parse, []
+    #parser, parser.string = XML::Parser.new, xml_data
+    #doc, statuses = parser.parse, []
+    parser = XML::Parser.string(xml_data)
+    doc = parser.parse;
     
     @games = Array.new
     doc.find('//profile/mostPlayedGames/mostPlayedGame').each do |game|

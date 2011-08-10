@@ -51,10 +51,6 @@ h2 {
 	font-size: 14pt;
 }
 
-h2 img {
-	height: 18px;
-}
-
 h3 {
 	color: #555555;
 	font-size: 9pt;
@@ -287,9 +283,7 @@ div.field, div.actions {
 }
 
 #profiles .profile {
-	margin-top: 10px;
-	height: 100px;
-	width: 100px;
+	margin-top: 5px;
 	overflow: hidden;
 }
 
@@ -429,6 +423,25 @@ div.field, div.actions {
 			text-align: left;
 		}
 		
+		#profiles .profile {
+			float: left;
+			width: 80px;
+			margin: 0px 0px 0px 40px;
+		}
+		
+		#profiles .onlyfull {
+			clear: none;
+		}
+		
+		#games {
+			margin-top: 30px;
+		}
+		
+		#games .game_logo {
+			float: left;
+			margin-left: 20px;
+		}
+		
 		#resume #address #permanent, #resume #address #current {
 			text-align: center;
 		}
@@ -465,12 +478,37 @@ div.field, div.actions {
 			font-size: 10pt;
 			font-weight: normal;
 		}
+		
+		#profiles .profile {
+			margin-left: 10px;
+		}
+		
+		#games .game_logo {
+			float: none;
+			margin-left: 0px;
+		}
 	}
 	
 	/* Anything smaller than standard 960 */
 	@media only screen and (max-width: 959px) {
 		#top h1 {
 			font-size: 18pt;
+		}
+		
+		#welcome {
+			font-size: 11pt;
+		}
+		
+		#welcome span {
+			font-size: 13pt;
+		}
+		
+		#bio {
+			font-size: 11pt;
+		}
+		
+		#profiles img {
+			height: 80px;
 		}
 		
 		#resume {
