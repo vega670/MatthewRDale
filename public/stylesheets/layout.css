@@ -386,6 +386,38 @@ div.field, div.actions {
 }
 
 
+/* Error Pages */
+
+#errorbg {
+	position: relative;
+	top: 200px;
+	background: #202020;
+	padding: 20px 0px 10px 0px;
+}
+
+#errorbg #message {
+	color: #FFF;
+	letter-spacing: 3px;
+	font-size: 24pt;
+}
+
+#errorbg #buttons {
+	text-align: right;
+	font-size: 24pt;
+	margin-top: 15px;
+}
+
+#errorbg #buttons a, #errorbg #buttons a:visited {
+	color: #FFF;
+	margin-right: 10px;
+	padding: 5px;
+}
+
+#errorbg #buttons a:hover {
+	background: #FFF;
+	color: #202020;
+}
+
 /* #Media Queries
 ================================================== */
 	
