@@ -1,11 +1,10 @@
 MatthewRDale::Application.routes.draw do
   devise_for :users
 
-#  resources :projects
+  resources :projects
 
   resources :pages
   
-=begin
   #aadg paths for projects resource
   resources :projects do
     resources :galleries do
@@ -26,28 +25,7 @@ MatthewRDale::Application.routes.draw do
       end
     end
   end
-=end  
-  #aadg paths for pages resource
-  resources :pages do
-    resources :galleries do
-      resources :images
-    end
-  
-    namespace(:aadgadmin, :namespace => '') do
-      resources :galleries do
-        resources :dimensions do
-          get :set_gallery_dimension, :on => :member
-        end
-        resources :images do
-          get :set_gallery_image, :on => :member
-        end
-      end
-      resources :dimensions do
-        resources :galleries
-      end
-    end
-  end
-  
+
   namespace :aadgadmin do
     resources :dimensions do
       resources :galleries
