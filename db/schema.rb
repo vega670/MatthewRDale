@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20140302224353) do
 
   create_table "articles", force: true do |t|
     t.string   "url"
+    t.string   "canonical_url"
     t.string   "rss_feed_url"
     t.text     "rss_item_json"
     t.datetime "created_at"

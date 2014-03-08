@@ -1,8 +1,10 @@
 require 'api/google_feed'
 require 'uri'
-require 'net/http'
 require 'rss'
 require 'levenshtein'
+require 'parallel'
+require 'open-uri'
+require 'cgi'
 
 class Article < ActiveRecord::Base
 	validates :url, format: { with: URI::regexp }
@@ -10,7 +12,7 @@ class Article < ActiveRecord::Base
 	before_create :populate!
 
 	def site_name
-		host.split('.')[-2]
+		host.split('.')[0..-2].reject {|part| part.include? 'www' }.join ' '
 	end
 
 	def host
@@ -21,8 +23,12 @@ class Article < ActiveRecord::Base
 		URI self.url
 	end
 
+	def canonical_url
+		self[:canonical_url] ||= canonicalize_url self.url
+	end
+
 	def title
-		rss_item['title']
+		CGI.unescapeHTML rss_item['title']
 	end
 
 	def content
@@ -30,18 +36,20 @@ class Article < ActiveRecord::Base
 	end
 
 	def rss_feed
-		xml = Net::HTTP.get URI(self.rss_feed_url)
+		xml = open(self.rss_feed_url).read
 		RSS::Parser.parse xml
 	end
 
 	def rss_item
-		if self.rss_item_json.nil?
-			ordered_items = rss_feed.items.sort do |item1, item2|
-				distance_from(item1) <=> distance_from(item2)
+		JSON.parse self.rss_item_json ||= begin
+			distanced_items = Parallel.map(rss_feed.items, in_threads: 4) do |item|
+				[item, distance_from(item)]
 			end
-			self.rss_item_json = ordered_items.first.to_json
+			ordered_items = distanced_items.sort do |distanced1, distanced2|
+				distanced1.last <=> distanced2.last
+			end.map(&:first)
+			ordered_items.first.to_json
 		end
-		JSON.parse self.rss_item_json
 	end
 
 	def rss_feed_url
@@ -53,8 +61,27 @@ class Article < ActiveRecord::Base
 		self.rss_item
 	end
 
-	def sanitize_path path
-		Pathname.new(path).cleanpath.to_s.downcase
+	def canonicalize_url url
+		canonical_url = follow_redirects url
+
+		uri = URI canonical_url
+		Pathname(uri.host.to_s + uri.path.to_s).cleanpath.to_s.downcase
+	end
+
+	def follow_redirects url
+		return url unless url =~ /^#{URI::regexp}$/
+
+		uri = URI(url)
+		response = Net::HTTP.start(uri.host) do |http|
+			http.head uri.path
+		end
+
+		location = response['location']
+		if location.present?
+			follow_redirects location
+		else
+			url
+		end
 	end
 
 	def content_from rss_item
@@ -67,17 +94,21 @@ class Article < ActiveRecord::Base
 	end
 
 	def distance_from rss_item
-		# do some light normalization of the URLs
-		clean_url = sanitize_path self.url
-		item_url = sanitize_path rss_item.link
-		item_guid = sanitize_path rss_item.guid.to_s
-
-		# find the sum of the distances between the RSS link URLs and the RSS GUIDs, which are sometimes (better) URLs
-		distance = Levenshtein.distance(item_url, clean_url)
-		distance += Levenshtein.distance(item_guid, clean_url)
+		# find the sum of the distances between the all potential RSS URLs and the Article URL
+		distance = [
+			rss_item.link,
+			rss_item.guid.to_s
+		].map do |item_url|
+			if item_url =~ /^#{URI::regexp}$/
+				canonical_item_url = canonicalize_url item_url
+				Levenshtein.distance(self.canonical_url, canonical_item_url)
+			else
+				0
+			end
+		end.reduce(:+)
 
 		# knock off 20% of the distance if the original URL path is in the RSS body. 20% is arbitrary, but it seems OK
-		if content_from(rss_item).downcase.include? sanitize_path(URI(self.url).path)
+		if content_from(rss_item).downcase.include? URI(self.canonical_url).path
 			distance -= distance * 0.2
 		end
 

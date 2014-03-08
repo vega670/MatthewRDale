@@ -1,7 +1,7 @@
-%h1 Listing articles
 - @articles.each do |article|
-  = link_to article.title, article.url
   .article
-    = article.content.html_safe
+    %hr
+    %h1= link_to article.title, article.url
+    %p= article.content.html_safe
 
 = link_to 'New Article', new_article_path

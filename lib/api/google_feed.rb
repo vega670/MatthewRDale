@@ -1,5 +1,5 @@
 require 'addressable/uri'
-require 'net/http'
+require 'open-uri'
 require 'json'
 
 module Api
@@ -13,7 +13,7 @@ module Api
 		end
 
 		def self.find query
-			JSON.parse Net::HTTP.get(uri_for 'find', {q: query})
+			JSON.parse open(uri_for('find', {q: query})).read
 		end
 
 		def self.urls_for query
