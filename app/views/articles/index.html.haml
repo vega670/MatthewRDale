@@ -1,7 +1,12 @@
-- @articles.each do |article|
-  .article
-    %hr
-    %h1= link_to article.title, article.url
-    %p= article.content.html_safe
+/ = link_to 'New Article', new_article_path
 
-= link_to 'New Article', new_article_path
+.articles
+  - @articles.each do |article|
+    .article.rounded.pp_default
+      %h1= link_to article.title, article.url
+      %p= article.content.html_safe
+    .divider
+
+
+.center-text
+  = paginate @articles

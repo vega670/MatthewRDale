@@ -12,8 +12,22 @@
  *= require_tree .
  */
 
-@import "bootstrap";
+.matthew {
+ 	font-size: 3em;
+  font-weight: bold;
+}
 
-body {
-	font-family: Trebuchet, Arial, sans-serif;
+.matthew a:link, .matthew a:visited {
+  color: #fff;
+}
+
+.matthew a:hover {
+  color: #69c;
+}
+
+.rounded {
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-topleft: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }

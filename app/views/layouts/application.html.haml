@@ -2,8 +2,8 @@
 %html{lang: 'en'}
   %head
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
-    %title= content_for?(:title) ? yield(:title) : "Matthew R Dale"
-    %meta{name: "description", content: "#{content_for?(:description) ? yield(:description) : "Matthew R Dale"}" }
+    %title= content_for?(:title) ? yield(:title) : "Matthew Dale"
+    %meta{name: "description", content: "#{content_for?(:description) ? yield(:description) : "Matthew Dale"}" }
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
@@ -12,6 +12,5 @@
       = render 'layouts/navigation'
     %main{role: "main"}
       = render 'layouts/messages'
-      .container
-        .col-md-9.col-md-offset-1
-          = yield
+      .col-md-8.col-md-offset-2.col-sm-10.col-sm-offset-1
+        = yield
