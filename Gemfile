@@ -34,6 +34,7 @@ gem 'retryable'
 gem 'levenshtein-ffi', :require => 'levenshtein'
 gem 'kaminari'
 gem 'parallel'
+gem 'newrelic_rpm'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

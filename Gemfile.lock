@@ -66,6 +66,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.4)
     multi_xml (0.5.5)
+    newrelic_rpm (3.7.3.199)
     parallel (0.9.2)
     pg (0.17.1)
     polyglot (0.3.3)
@@ -147,6 +148,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   levenshtein-ffi
+  newrelic_rpm
   parallel
   pg
   rails (= 4.0.2)
