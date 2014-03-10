@@ -6,24 +6,35 @@
           Hi, my name is Matthew. I create things with software.
         %p
           I'm a software developer at <a href="http://en.wikipedia.org/wiki/Amazon.com" target="_blank">Amazon</a>,
-          specifically in <a href="http://www.amazon.com/aiv" target="_blank">Amazon Instant Video</a>. I develop and
+          specifically in <a href="http://www.amazon.com/aiv" target="_blank">Amazon Instant Video</a>. There I develop and
           support platforms that enable video content creators to deliver their content to Amazon Instant Video.
         %p
-          In my free time, I do some <a href="http://rubyonrails.org" target="_blank">Rails</a> development.
+          In my free time, I enjoy creating simple web applications on <a href="http://rubyonrails.org" target="_blank">Rails</a>.
           In fact, this site runs on Rails. Check out the code running this site
-          <a href="https://github.com/vega670/MatthewRDale" target="_blank">on Github</a>
+          <a href="https://github.com/vega670/MatthewRDale" target="_blank">on Github</a>.
         %p
-          I'm also currently engaged in a game project in <a href="http://unity3d.com" target="_blank">Unity</a>.
+          I've participated in a few <a href="http://globalgamejam.org" target="_blank">Game Jams</a> where I helped create
+          <a href="http://youtu.be/SPYosTYOsUg" target="_blank">Jump Switch</a> and <a href="http://globalgamejam.org/2011/rock-never-dies" target="_blank">Rock Never Dies</a>.
+          I'm also currently developing a horror-themed game with a small group of friends using <a href="http://unity3d.com" target="_blank">Unity</a>.
 
-        %h2 Contact Me
-        %p
-          Email: <a href="mailto:matthew@matthewrdale.com">matthew@matthewrdale.com</a>
-        %p
-          Phone: (706) 247-2016
+      .row
+        .col-sm-4.col-xs-12
+          %h2 Resume
+          .resume
+            = link_to image_tag('resume.png'), 'https://matthewrdale.s3.amazonaws.com/resumes/MatthewDale-Resume.pdf'
+        .col-sm-8.col-xs-12
+          %h2 Contact Me
+          %p
+            Email: <a href="mailto:matthew@matthewrdale.com">matthew@matthewrdale.com</a>
+          %p
+            Phone: (706) 247-2016
     .col-md-2
       .row
         .visible-lg.visible-md.text-center
           %h4 Connect!
+        .visible-sm.visible-xs
+          .col-xs-12
+            %hr
         .social.col-md-12.col-md-offset-0.col-sm-3.col-sm-offset-1.col-xs-4
           = link_to image_tag('linkedin.png'), 'https://www.linkedin.com/in/matthewrdale/', target: '_blank'
         .social.col-md-12.col-sm-3.col-xs-4
