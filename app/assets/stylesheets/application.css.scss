@@ -12,9 +12,28 @@
  *= require_tree .
  */
 
+.rounded {
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-topleft: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
 .matthew {
- 	font-size: 3em;
-  font-weight: bold;
+  font-size: 4em;
+  font-weight: lighter;
+  line-height: 1em;
+}
+
+.matthew-xs {
+  font-size: 40px;
+  line-height: 25px;
+}
+
+@media screen and (max-device-width: 480px) {
+  .matthew {
+    font-size: 3em;
+  }
 }
 
 .matthew a:link, .matthew a:visited {
@@ -23,11 +42,25 @@
 
 .matthew a:hover {
   color: #69c;
+  text-decoration: none;
 }
 
-.rounded {
-  -moz-border-radius-topright: 10px;
-  -moz-border-radius-topleft: 10px;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
+.navlink {
+  position: absolute;
+  bottom: 0;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.navlink a:link, .navlink a:visited {
+  color: #eee;
+  text-decoration: none;
+}
+
+.navlink a:hover {
+  color: #69c;
+}
+
+.aligner {
+  height: 32px;
 }

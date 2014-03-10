@@ -1,11 +1,14 @@
 -# navigation styled for Bootstrap 3.0
 %nav.navbar.navbar-inverse.navbar-fixed-top
   .container
-    .navbar-header
-      %ul.nav.navbar-nav
-        %li
-          .matthew
-            = link_to 'Matthew Dale', root_path, class: 'navbar-brand'
-        %li
-          = link_to "Articles I'm Reading", articles_path
+    .matthew.col-lg-4.col-md-5.col-sm-12
+      .hidden-xs
+        = link_to 'Matthew Dale', root_path
+      .visible-xs
+        = link_to 'Matthew Dale', root_path, :class => 'matthew-xs'
+    .aligner.col-lg-8.col-md-7.visible-lg.visible-md
+    .navlink.col-md-1.col-xs-4
+      = link_to 'Home', root_path
+    .navlink.col-md-3.col-xs-8
+      = link_to "Shared Articles", articles_path
 
